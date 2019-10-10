@@ -67,7 +67,7 @@ stop_words.extend(['from', 'subject', 're', 'edu', 'use'])
 
 
 # Convert email body to list
-data = email_df.toValue()
+data = email_df.values
 # tokenize - break down each sentence into a list of words
 def sent_to_words(sentences):
     for sentence in sentences:
