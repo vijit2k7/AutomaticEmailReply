@@ -42,7 +42,7 @@ def parse_into_emails(emails):
     return {
         'body': emails
     }
-email_df =emails.split('\n')
+email_df =emails.splitlines()
 print(email_df)
 import re
 import numpy as np
