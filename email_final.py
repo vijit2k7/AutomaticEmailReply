@@ -24,8 +24,8 @@ query_job = client.query("""
         LIMIT 1000""")
 
 emails = query_job.result()  # Waits for job to complete.
-print("email type is",type(emails))
-
+print("email type is",type(emails),emails[0])
+new_email=[]           
 def parse_raw_message(raw_message):
     lines = raw_message.split('\n')
     email = {}
