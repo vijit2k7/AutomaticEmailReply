@@ -24,7 +24,7 @@ query_job = client.query("""
         LIMIT 1000""").to_dataframe()
 
 emails = query_job  # Waits for job to complete.
-print("email type is",type(emails),emails[0])
+print("email type is",type(emails))
 new_email=[]           
 def parse_raw_message(raw_message):
     lines = raw_message.split('\n')
