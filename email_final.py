@@ -24,9 +24,6 @@ query_job = client.query("""
         LIMIT 1000""")
 
 emails = query_job.result()  # Waits for job to complete.
-for row in emails:
-    print(row.DeNom)
-    print(row.ANom)
 
 
 def parse_raw_message(raw_message):
@@ -46,7 +43,7 @@ def parse_into_emails(emails):
     emails_new=[]
     for email in emails:
         print("each row",email)
-        emails_new.append(parse_raw_message(email))
+        # emails_new.append(parse_raw_message(email))
     print("emails are",emails_new)
     return {
         'body': emails
