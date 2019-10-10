@@ -20,16 +20,14 @@ import json
 client = bigquery.Client()
 query_job = client.query("""
         SELECT Corps
-        FROM `paris_pune_hackathon.mails`
+        FROM `paris-ilab.paris-pune-hackathon.mails`
         LIMIT 1000""")
 
 emails = query_job.result()  # Waits for job to complete.
-
+print(type(emails))
 
 def parse_raw_message(raw_message):
-    print("each msg is",raw_message)
     lines = raw_message.split('\n')
-    print("lines is",lines)
     email = {}
     message = ''
     for line in lines:
@@ -39,12 +37,10 @@ def parse_raw_message(raw_message):
 
 
 def parse_into_emails(emails):
-    print("email type is",type(emails))
     emails_new=[]
-    for email in emails:
-        print("each row",email)
+    # for email in emails:
+    #     print("each row",email)
         # emails_new.append(parse_raw_message(email))
-    print("emails are",emails_new)
     return {
         'body': emails
     }
