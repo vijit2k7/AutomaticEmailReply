@@ -56,8 +56,8 @@ import spacy
 # import pyLDAvis
 # import pyLDAvis.gensim
 import matplotlib.pyplot as plt
-#  >>> import nltk
-#  >>> nltk.download('stopwords')
+import nltk
+nltk.download('stopwords')
 # prep NLTK Stop words
 from nltk.corpus import stopwords
 stop_words = stopwords.words('french')
