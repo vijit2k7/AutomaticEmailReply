@@ -38,14 +38,12 @@ def parse_raw_message(raw_message):
 
 def parse_into_emails(emails):
     emails_new=[]
-    # for email in emails:
-    #     print("each row",email)
-        # emails_new.append(parse_raw_message(email))
+    emails_new=emails
     return {
         'body': emails
     }
-email_df = pd.DataFrame(parse_into_emails(emails))
-
+email_df =emails.split('\n')
+print(email_df)
 import re
 import numpy as np
 import gensim
@@ -70,7 +68,6 @@ stop_words.extend(['from', 'subject', 're', 'edu', 'use'])
 
 # Convert email body to list
 data = email_df.body.values.tolist()
-print("data is",data)
 # tokenize - break down each sentence into a list of words
 def sent_to_words(sentences):
     for sentence in sentences:
