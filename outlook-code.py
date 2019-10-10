@@ -53,8 +53,7 @@ def list_emails(at, sc):
 
             test1(email)
 
-            # Replace Static Values with actual ones from ML
-            send_email("test sub", "test body", email["id"])
+            # Replace Static Values with actual ones from M
         else:
             print ("No Unread emails")
 
