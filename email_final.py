@@ -2,31 +2,31 @@ import pyLDAvis
 import pyLDAvis.gensim
 import matplotlib.pyplot as plt
 import pandas as pd
-filepath = 'data/mail-body-CSV.csv'
-emails=[]
-with open(filepath ,encoding="utf8") as fp:
-   line = fp.readline()
-   cnt = 1
-   while line:
-       print("Line {}: {}".format(cnt, line.strip()))
-       emails.append(line)
-       line = fp.readline()
-       cnt += 1
+# filepath = 'data/mail-body-CSV.csv'
+# emails=[]
+# with open(filepath ,encoding="utf8") as fp:
+#    line = fp.readline()
+#    cnt = 1
+#    while line:
+#        print("Line {}: {}".format(cnt, line.strip()))
+#        emails.append(line)
+#        line = fp.readline()
+#        cnt += 1
 # emails = pd.read_csv('data/mail-body-CSV.csv',skiprows=2)
 #print("emails at start",emails.loc[[0]])
 from google.cloud import bigquery
 import json
 
-# client = bigquery.Client()
-# query_job = client.query("""
-#         SELECT Corps
-#         FROM `paris-ilab.paris-pune-hackathon.mails`
-#         LIMIT 1000""")
-#
-# emails = query_job.result()  # Waits for job to complete.
-# for row in emails:
-#     print(row.DeNom)
-#     print(row.ANom)
+client = bigquery.Client()
+query_job = client.query("""
+        SELECT Corps
+        FROM `paris-ilab.paris-pune-hackathon.mails`
+        LIMIT 1000""")
+
+emails = query_job.result()  # Waits for job to complete.
+for row in emails:
+    print(row.DeNom)
+    print(row.ANom)
 
 
 def parse_raw_message(raw_message):
