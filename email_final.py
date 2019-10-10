@@ -62,8 +62,10 @@ nltk.download('stopwords')
 from nltk.corpus import stopwords
 stop_words = stopwords.words('french')
 stop_words.extend(['from', 'subject', 're', 'edu', 'use'])
+current_email={}
 
-
+def test1(email):
+       print("email from outlook",email)
 
 
 # Convert email body to list
@@ -115,7 +117,8 @@ data_words_bigrams = make_bigrams(data_words_nostops)
 # Initialize spacy 'en' model, keeping only tagger component (for efficiency)
 nlp = spacy.load('fr_core_news_sm', disable=['parser', 'ner'])
 # Do lemmatization keeping only noun, adj, vb, adv
-data_lemmatized = lemmatization(data_words_bigrams, allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV'])
+print("words bigrams",data_words_bigrams)
+data_lemmatized=nlp(data_words_bigrams)#  data_lemmatized = lemmatization(data_words_bigrams, allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV'])
 print("data lemmatized is",data_lemmatized)
 
 
