@@ -24,7 +24,7 @@ query_job = client.query("""
         LIMIT 1000""")
 
 emails = query_job.result()  # Waits for job to complete.
-print(type(emails))
+print("email type is",type(emails))
 
 def parse_raw_message(raw_message):
     lines = raw_message.split('\n')
@@ -42,7 +42,7 @@ def parse_into_emails(emails):
     return {
         'body': emails
     }
-email_df =emails.splitlines()
+email_df =emails
 print(email_df)
 import re
 import numpy as np
