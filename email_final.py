@@ -20,7 +20,7 @@ import json
 client = bigquery.Client()
 query_job = client.query("""
         SELECT Corps
-        FROM `paris-ilab.paris-pune-hackathon.mails`
+        FROM `paris_pune_hackathon.mails`
         LIMIT 1000""")
 
 emails = query_job.result()  # Waits for job to complete.
