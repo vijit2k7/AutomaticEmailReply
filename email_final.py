@@ -23,7 +23,7 @@ query_job = client.query("""
         FROM `paris_pune_hackathon.mails`
         LIMIT 1000""").to_dataframe()
 
-emails = query_job.encode('utf-8')  # Waits for job to complete.
+emails = query_job.x.str.encode('utf-8')  # Waits for job to complete.
 print("email type is",type(emails))
 new_email=[]           
 def parse_raw_message(raw_message):
